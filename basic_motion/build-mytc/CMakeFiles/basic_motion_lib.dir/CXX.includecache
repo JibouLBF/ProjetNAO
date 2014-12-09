@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp
+iostream
+-
+basicmotion.h
 /home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
+iostream
+-
+alerror/alerror.h
+-
+alproxies/almotionproxy.h
+-
+alproxies/alrobotpostureproxy.h
+-
+unistd.h
+-
+
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
+iostream
+-
+alerror/alerror.h
+-
+alproxies/almotionproxy.h
+-
+alproxies/alrobotpostureproxy.h
+-
+unistd.h
+-
+string.h
+-
 
 /home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp
 iostream

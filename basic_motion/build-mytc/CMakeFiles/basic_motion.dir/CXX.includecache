@@ -6,15 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
-
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp
 iostream
 -
-head.h
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.h
-
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.h
+basicmotion.h
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
 iostream
 -
 alerror/alerror.h
@@ -25,16 +21,20 @@ alproxies/alrobotpostureproxy.h
 -
 unistd.h
 -
-basicmotion.h
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
 
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/main.cpp
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
 iostream
 -
-basicmotion.h
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.h
-head.h
-/home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.h
+alerror/alerror.h
+-
+alproxies/almotionproxy.h
+-
+alproxies/alrobotpostureproxy.h
+-
+unistd.h
+-
+string.h
+-
 
 /home/xph3sle301v/Downloads/naoqi-sdk-1.14.5-linux64/include/alerror/alerror.h
 alerror/config.h

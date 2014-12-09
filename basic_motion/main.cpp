@@ -11,5 +11,6 @@ int main()
 {
   std::cout << "Hello, world" << std::endl;
    BasicMotion* bm = new Head();
+   bm->action();
   return 0;
 }
