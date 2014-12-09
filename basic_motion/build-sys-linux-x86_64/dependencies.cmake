@@ -4,7 +4,7 @@
 #############################################
 
 # Add path to CMake framework path if necessary:
-set(_qibuild_path "/home/xph3sle301v/Documents/qibuild-1.14.3/cmake")
+set(_qibuild_path "/home/jb/Documents/NAO/qibuild-1.14.3/cmake")
 list(FIND CMAKE_MODULE_PATH "${_qibuild_path}" _found)
 if(_found STREQUAL "-1")
   # Prefer cmake files matching  current qibuild installation

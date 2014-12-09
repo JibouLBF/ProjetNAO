@@ -2,6 +2,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/basic_motion.dir/main.cpp.o"
   "sdk/bin/basic_motion.pdb"
   "sdk/bin/basic_motion"
+  "sdk/bin/basic_motion.pdb"
+  "CMakeFiles/CMakeRelink.dir/basic_motion"
 )
 
 # Per-language clean rules from dependency scanning.
