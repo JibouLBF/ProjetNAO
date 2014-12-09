@@ -91,7 +91,7 @@ install/strip/fast: install/strip
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"binary\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"binary\" \"lib\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -163,6 +163,19 @@ basic_motion/fast:
 .PHONY : basic_motion/fast
 
 #=============================================================================
+# Target rules for targets named basic_motion_lib
+
+# Build rule for target.
+basic_motion_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 basic_motion_lib
+.PHONY : basic_motion_lib
+
+# fast build rule for target.
+basic_motion_lib/fast:
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/build
+.PHONY : basic_motion_lib/fast
+
+#=============================================================================
 # Target rules for targets named test_basic_motion
 
 # Build rule for target.
@@ -175,12 +188,67 @@ test_basic_motion/fast:
 	$(MAKE) -f CMakeFiles/test_basic_motion.dir/build.make CMakeFiles/test_basic_motion.dir/build
 .PHONY : test_basic_motion/fast
 
+basicmotion.o: basicmotion.cpp.o
+.PHONY : basicmotion.o
+
+# target to build an object file
+basicmotion.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/basicmotion.cpp.o
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/basicmotion.cpp.o
+.PHONY : basicmotion.cpp.o
+
+basicmotion.i: basicmotion.cpp.i
+.PHONY : basicmotion.i
+
+# target to preprocess a source file
+basicmotion.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/basicmotion.cpp.i
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/basicmotion.cpp.i
+.PHONY : basicmotion.cpp.i
+
+basicmotion.s: basicmotion.cpp.s
+.PHONY : basicmotion.s
+
+# target to generate assembly for a file
+basicmotion.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/basicmotion.cpp.s
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/basicmotion.cpp.s
+.PHONY : basicmotion.cpp.s
+
+head.o: head.cpp.o
+.PHONY : head.o
+
+# target to build an object file
+head.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/head.cpp.o
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/head.cpp.o
+.PHONY : head.cpp.o
+
+head.i: head.cpp.i
+.PHONY : head.i
+
+# target to preprocess a source file
+head.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/head.cpp.i
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/head.cpp.i
+.PHONY : head.cpp.i
+
+head.s: head.cpp.s
+.PHONY : head.s
+
+# target to generate assembly for a file
+head.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/head.cpp.s
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/head.cpp.s
+.PHONY : head.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
 	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -189,6 +257,7 @@ main.i: main.cpp.i
 # target to preprocess a source file
 main.cpp.i:
 	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -197,6 +266,7 @@ main.s: main.cpp.s
 # target to generate assembly for a file
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/basic_motion_lib.dir/build.make CMakeFiles/basic_motion_lib.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 test.o: test.cpp.o
@@ -230,6 +300,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... basic_motion"
+	@echo "... basic_motion_lib"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
@@ -238,6 +309,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... test_basic_motion"
+	@echo "... basicmotion.o"
+	@echo "... basicmotion.i"
+	@echo "... basicmotion.s"
+	@echo "... head.o"
+	@echo "... head.i"
+	@echo "... head.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

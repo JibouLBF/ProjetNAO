@@ -49,9 +49,55 @@ include CMakeFiles/basic_motion.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/basic_motion.dir/flags.make
 
+CMakeFiles/basic_motion.dir/basicmotion.cpp.o: CMakeFiles/basic_motion.dir/flags.make
+CMakeFiles/basic_motion.dir/basicmotion.cpp.o: ../basicmotion.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/basic_motion.dir/basicmotion.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/basic_motion.dir/basicmotion.cpp.o -c /home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp
+
+CMakeFiles/basic_motion.dir/basicmotion.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_motion.dir/basicmotion.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp > CMakeFiles/basic_motion.dir/basicmotion.cpp.i
+
+CMakeFiles/basic_motion.dir/basicmotion.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_motion.dir/basicmotion.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp -o CMakeFiles/basic_motion.dir/basicmotion.cpp.s
+
+CMakeFiles/basic_motion.dir/basicmotion.cpp.o.requires:
+.PHONY : CMakeFiles/basic_motion.dir/basicmotion.cpp.o.requires
+
+CMakeFiles/basic_motion.dir/basicmotion.cpp.o.provides: CMakeFiles/basic_motion.dir/basicmotion.cpp.o.requires
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/basicmotion.cpp.o.provides.build
+.PHONY : CMakeFiles/basic_motion.dir/basicmotion.cpp.o.provides
+
+CMakeFiles/basic_motion.dir/basicmotion.cpp.o.provides.build: CMakeFiles/basic_motion.dir/basicmotion.cpp.o
+
+CMakeFiles/basic_motion.dir/head.cpp.o: CMakeFiles/basic_motion.dir/flags.make
+CMakeFiles/basic_motion.dir/head.cpp.o: ../head.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/basic_motion.dir/head.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/basic_motion.dir/head.cpp.o -c /home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp
+
+CMakeFiles/basic_motion.dir/head.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_motion.dir/head.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp > CMakeFiles/basic_motion.dir/head.cpp.i
+
+CMakeFiles/basic_motion.dir/head.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_motion.dir/head.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp -o CMakeFiles/basic_motion.dir/head.cpp.s
+
+CMakeFiles/basic_motion.dir/head.cpp.o.requires:
+.PHONY : CMakeFiles/basic_motion.dir/head.cpp.o.requires
+
+CMakeFiles/basic_motion.dir/head.cpp.o.provides: CMakeFiles/basic_motion.dir/head.cpp.o.requires
+	$(MAKE) -f CMakeFiles/basic_motion.dir/build.make CMakeFiles/basic_motion.dir/head.cpp.o.provides.build
+.PHONY : CMakeFiles/basic_motion.dir/head.cpp.o.provides
+
+CMakeFiles/basic_motion.dir/head.cpp.o.provides.build: CMakeFiles/basic_motion.dir/head.cpp.o
+
 CMakeFiles/basic_motion.dir/main.cpp.o: CMakeFiles/basic_motion.dir/flags.make
 CMakeFiles/basic_motion.dir/main.cpp.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/basic_motion.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/basic_motion.dir/main.cpp.o -c /home/xph3sle301v/Documents/project/projet_nao/basic_motion/main.cpp
 
@@ -74,11 +120,15 @@ CMakeFiles/basic_motion.dir/main.cpp.o.provides.build: CMakeFiles/basic_motion.d
 
 # Object files for target basic_motion
 basic_motion_OBJECTS = \
+"CMakeFiles/basic_motion.dir/basicmotion.cpp.o" \
+"CMakeFiles/basic_motion.dir/head.cpp.o" \
 "CMakeFiles/basic_motion.dir/main.cpp.o"
 
 # External object files for target basic_motion
 basic_motion_EXTERNAL_OBJECTS =
 
+sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/basicmotion.cpp.o
+sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/head.cpp.o
 sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/main.cpp.o
 sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/build.make
 sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/link.txt
@@ -89,6 +139,8 @@ sdk/bin/basic_motion: CMakeFiles/basic_motion.dir/link.txt
 CMakeFiles/basic_motion.dir/build: sdk/bin/basic_motion
 .PHONY : CMakeFiles/basic_motion.dir/build
 
+CMakeFiles/basic_motion.dir/requires: CMakeFiles/basic_motion.dir/basicmotion.cpp.o.requires
+CMakeFiles/basic_motion.dir/requires: CMakeFiles/basic_motion.dir/head.cpp.o.requires
 CMakeFiles/basic_motion.dir/requires: CMakeFiles/basic_motion.dir/main.cpp.o.requires
 .PHONY : CMakeFiles/basic_motion.dir/requires
 

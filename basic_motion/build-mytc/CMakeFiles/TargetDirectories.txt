@@ -1,0 +1,3 @@
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-mytc/CMakeFiles/basic_motion.dir
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-mytc/CMakeFiles/basic_motion_lib.dir
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-mytc/CMakeFiles/test_basic_motion.dir

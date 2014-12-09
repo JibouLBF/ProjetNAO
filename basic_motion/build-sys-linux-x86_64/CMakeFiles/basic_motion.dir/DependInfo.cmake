@@ -4,6 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/basicmotion.cpp" "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles/basic_motion.dir/basicmotion.cpp.o"
+  "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/head.cpp" "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles/basic_motion.dir/head.cpp.o"
   "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/main.cpp" "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles/basic_motion.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

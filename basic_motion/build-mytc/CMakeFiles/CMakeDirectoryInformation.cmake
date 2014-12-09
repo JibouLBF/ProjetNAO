@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/xph3sle301v/Documents/project/projet_nao/basic_motion")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-mytc")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
