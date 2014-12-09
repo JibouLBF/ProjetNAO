@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC -g   -shared -Wl,-soname,libbasic_motion_lib.so -o sdk/lib/libbasic_motion_lib.so CMakeFiles/basic_motion_lib.dir/basicmotion.cpp.o CMakeFiles/basic_motion_lib.dir/head.cpp.o CMakeFiles/basic_motion_lib.dir/main.cpp.o 

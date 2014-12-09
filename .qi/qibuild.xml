@@ -1,4 +1,0 @@
-<qibuild version="1">
-  <defaults config="mytc"/>
-  <build sdk_dir="/home/xph3sle301v/Downloads/naoqi-sdk-1.14.5-linux64"/>
-</qibuild>
