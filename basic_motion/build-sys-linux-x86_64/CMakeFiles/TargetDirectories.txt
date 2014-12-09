@@ -1,2 +1,0 @@
-/home/jb/Documents/ProjetNAO/basic_motion/build-sys-linux-x86_64/CMakeFiles/basic_motion.dir
-/home/jb/Documents/ProjetNAO/basic_motion/build-sys-linux-x86_64/CMakeFiles/test_basic_motion.dir
