@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/test_basic_motion.dir/test.cpp.o  -o sdk/bin/test_basic_motion -rdynamic 

@@ -1,0 +1,2 @@
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles/basic_motion.dir
+/home/xph3sle301v/Documents/project/projet_nao/basic_motion/build-sys-linux-x86_64/CMakeFiles/test_basic_motion.dir

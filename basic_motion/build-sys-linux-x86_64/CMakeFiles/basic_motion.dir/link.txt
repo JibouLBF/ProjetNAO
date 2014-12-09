@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/basic_motion.dir/main.cpp.o  -o sdk/bin/basic_motion -rdynamic -Wl,-rpath,:::::::::::::: 
