@@ -4,13 +4,14 @@
  * found in the COPYING file.
  */
 #include <iostream>
-#include "basicmotion.h"
+
+#include "motion.h"
 #include "head.h"
 
 int main()
 {
   std::cout << "Hello, world" << std::endl;
-   BasicMotion* bm = new Head();
+   Motion* bm = new Head();
    bm->action();
   return 0;
 }

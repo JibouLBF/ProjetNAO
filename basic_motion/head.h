@@ -24,20 +24,6 @@ public:
          AL::ALValue targetTimes, bool isAbsolute);
 
 private:
-    /** Target stiffness. */
-    AL::ALValue stiffness = 1.0f;
-    /** Time (in seconds) to reach the target. */
-    AL::ALValue time = 1.0f;
-
-    /** The name of the joint to be moved. */
-    AL::ALValue jointName;
-    /** Set the target angle list, in radians. */
-    AL::ALValue targetAngles = AL::ALValue::array(-1.5f, 1.5f, 0.0f);
-    /** Set the corresponding time lists, in seconds. */
-    AL::ALValue targetTimes = AL::ALValue::array(3.0f, 6.0f, 9.0f);
-    /** Specify that the desired angles are absolute. */
-    bool isAbsolute = true;
-
 
 };
 

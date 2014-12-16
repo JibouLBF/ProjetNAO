@@ -7,15 +7,42 @@
 #include <unistd.h>
 #include <string.h>
 
-class BasicMotion
+#include "motion.h"
+
+class BasicMotion : public Motion
 {
 public:
     BasicMotion();
-    virtual void action ();
-    virtual void actionWhileConcurrency ();
+
+    AL::ALValue getMotionName() const;
+    void setMotionName(const AL::ALValue &value);
+
+    AL::ALValue getAngleList() const;
+    void setAngleList(const AL::ALValue &value);
+
+    AL::ALValue getTimeList() const;
+    void setTimeList(const AL::ALValue &value);
+
+    AL::ALValue getStiffness() const;
+    void setStiffness(const AL::ALValue &value);
+
+    bool getIsAbsolute() const;
+    void setIsAbsolute(bool value);
+
+    void action();
 
 protected:
-    static AL::ALMotionProxy* motion;
+    /** The name of the joint to be moved. */
+    AL::ALValue motionName;
+    /** Set the target angle list, in radians. */
+    AL::ALValue angleList;
+    /** Set the corresponding time lists, in seconds. */
+    AL::ALValue timeList;
+    /** Target stiffness. */
+    AL::ALValue stiffness;
+    /** Specify that the desired angles are absolute. */
+    bool isAbsolute;
+
 };
 
 #endif // BASICMOTION_H

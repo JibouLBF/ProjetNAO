@@ -4,11 +4,13 @@ project(basic_motion)
 find_package(qibuild)
 
 set(_srcs
+    main.cpp
     basicmotion.h
     basicmotion.cpp
     head.h
     head.cpp
-    main.cpp
+    motion.h
+    motion.cpp
 )
 
 qi_create_lib(basic_motion_lib ${_srcs})
