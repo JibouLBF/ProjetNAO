@@ -1,6 +1,6 @@
 #include "posture.h"
 
-AL::ALRobotPostureProxy* Posture::postureProxy = new AL::ALRobotPostureProxy ("192", 9552);
+AL::ALRobotPostureProxy* Posture::postureProxy = new AL::ALRobotPostureProxy ("147.171.35.236", 9559);
 
 Posture::Posture()
 {
