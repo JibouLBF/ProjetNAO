@@ -1,12 +1,12 @@
 #include "posture.h"
 
-AL::ALRobotPostureProxy* postureProxy = new AL::ALRobotPostureProxy ("192", 9552);
+AL::ALRobotPostureProxy* Posture::postureProxy = new AL::ALRobotPostureProxy ("192", 9552);
 
 Posture::Posture()
 {
 }
 
-Posture::action()
+void Posture::action()
 {
-    postureProxy->goToPosture(TypeOfPosture,1.0);
+    this->postureProxy->goToPosture(typeOfPosture,1.0);
 }

@@ -24,7 +24,7 @@ public:
          AL::ALValue targetTimes, bool isAbsolute);
 
 private:
-
+    AL::ALValue motionNameProperties;
 };
 
 #endif // HEAD_H

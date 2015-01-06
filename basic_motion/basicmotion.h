@@ -43,6 +43,8 @@ protected:
     /** Specify that the desired angles are absolute. */
     bool isAbsolute;
 
+    static AL::ALMotionProxy* basicMotionProxy;
+
 };
 
 #endif // BASICMOTION_H

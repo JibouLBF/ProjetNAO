@@ -1,10 +1,11 @@
-#include <iostream>
 #include "basicmotion.h"
 #include <iostream>
 #include <alerror/alerror.h>
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
 #include <unistd.h>
+
+AL::ALMotionProxy* BasicMotion::basicMotionProxy = new AL::ALMotionProxy ("147.171.65.236", 9552);
 
 BasicMotion::BasicMotion()
 {
@@ -59,6 +60,11 @@ void BasicMotion::setIsAbsolute(bool value)
 void BasicMotion::action()
 {
     std::cout << "BasicMotion Action" << std::endl;
+
+    /** Call the angle interpolation method. The joint will reach the
+    * desired angles at the desired times.
+    */
+    basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);
 }
 
 

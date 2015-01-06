@@ -1,33 +1,31 @@
 #include <iostream>
-#include "head.h"
+#include "arm.h"
 
-Head::Head()
+Arm::Arm()
 {
-    std::cout << "Head" << std::endl;
 }
 
-Head::Head(AL::ALValue stiffness, AL::ALValue time){
+Arm::Arm(AL::ALValue stiffness, AL::ALValue time){
     this->stiffness = stiffness;
     this->timeList = time;
 }
 
-Head::Head(AL::ALValue jointName, AL::ALValue targetAngles,
-     AL::ALValue targetTimes, bool isAbsolute){
+Arm::Arm(AL::ALValue jointName, AL::ALValue targetAngles,
+     AL::ALValue time, bool isAbsolute){
 
     this->motionName = jointName;
     this->angleList = targetAngles;
-    this->timeList = targetTimes;
+    this->timeList = time;
     this->isAbsolute = isAbsolute;
 }
 
-Head::Head(AL::ALValue stiffness, AL::ALValue time,
+Arm::Arm(AL::ALValue stiffness, AL::ALValue time,
      AL::ALValue jointName, AL::ALValue targetAngles,
-     AL::ALValue targetTimes, bool isAbsolute){
+     bool isAbsolute){
 
     this->stiffness = stiffness;
     this->timeList = time;
     this->motionName = jointName;
     this->angleList = targetAngles;
-    this->timeList = targetTimes;
     this->isAbsolute = isAbsolute;
 }
