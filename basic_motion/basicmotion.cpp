@@ -64,6 +64,13 @@ void BasicMotion::action()
     /** Call the angle interpolation method. The joint will reach the
     * desired angles at the desired times.
     */
+    /** Target stiffness. */
+        AL::ALValue stiffness = 1.0f;
+        /** Time (in seconds) to reach the target. */
+        AL::ALValue time = 1.0f;
+        /** Call the stiffness interpolation method. */
+        basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
+    std::cout << motionName << " "<<angleList << " "<<timeList<<" "<<isAbsolute<<std::endl;
     basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);
 }
 

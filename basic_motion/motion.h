@@ -11,7 +11,6 @@ public:
     Motion();
     virtual void action ()= 0;
 protected:
-    static AL::ALMotionProxy* motion;
     AL::ALValue name;
 };
 
