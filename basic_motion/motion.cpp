@@ -13,3 +13,7 @@ void Motion::initProxy(std::string ip, int port){
     basicMotionProxy = new AL::ALMotionProxy (ip, port);
     postureProxy = new AL::ALRobotPostureProxy (ip, port);
 }
+
+void Motion::relax(){
+    basicMotionProxy->rest();
+}
