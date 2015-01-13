@@ -11,7 +11,6 @@ public:
     void action();
 protected:
     std::string typeOfPosture;
-    static AL::ALRobotPostureProxy* postureProxy;
 };
 
 #endif // POSTURE_H

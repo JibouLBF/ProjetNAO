@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
    std::cout << "Hello, world" << std::endl;
 
     try {
+        Motion::initProxy(argv[1], 9559);
         Motion* bm = new Sit();
         bm->action();
         AL::ALValue jointName = "HeadYaw";

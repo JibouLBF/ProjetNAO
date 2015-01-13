@@ -5,7 +5,7 @@
 #include <alproxies/alrobotpostureproxy.h>
 #include <unistd.h>
 
-AL::ALMotionProxy* BasicMotion::basicMotionProxy = new AL::ALMotionProxy ("192.168.0.1", 9559);
+//AL::ALMotionProxy* BasicMotion::basicMotionProxy = new AL::ALMotionProxy ("192.168.0.1", 9559);
 
 BasicMotion::BasicMotion()
 {
