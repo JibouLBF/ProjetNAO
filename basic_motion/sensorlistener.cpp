@@ -16,6 +16,7 @@ SensorListener::SensorListener(std::string eventName)
       */
       fMemoryProxy = AL::ALMemoryProxy("192.168.0.1",9559);
 
+
       sensorValue = fMemoryProxy.getData(eventName);
       /** Subscribe to event LeftBumperPressed
       * Arguments:

@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 project(basic_motion)
 find_package(qibuild)
 
-#option(EVENTS_IS_REMOTE
+option(EVENTS_IS_REMOTE
   #module is compiled as a remote module (ON or OFF)
- # OFF)
+ ON)
 
 set(_srcs
     basicmotion.h
