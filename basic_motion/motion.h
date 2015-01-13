@@ -12,6 +12,7 @@ public:
     Motion();
     virtual void action ()= 0;
     static void initProxy(std::string ip, int port);
+    void relax();
 
 protected:
     AL::ALValue name;
