@@ -9,8 +9,8 @@ AL::ALMotionProxy* BasicMotion::basicMotionProxy = new AL::ALMotionProxy ("192.1
 
 BasicMotion::BasicMotion()
 {
-
 }
+
 AL::ALValue BasicMotion::getMotionName() const
 {
     return motionName;
