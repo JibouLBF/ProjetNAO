@@ -8,10 +8,8 @@
 #include "motion.h"
 #include "stand.h"
 
-SensorListener::SensorListener(
-  boost::shared_ptr<AL::ALBroker> broker,
-  const std::string& name): AL::ALModule(broker, name),
-    fCallbackMutex(AL::ALMutex::createALMutex())
+SensorListener::SensorListener(boost::shared_ptr<AL::ALBroker> broker,const std::string& name):
+    AL::ALModule(broker, name), fCallbackMutex(AL::ALMutex::createALMutex())
 {
   setModuleDescription("This module presents how to subscribe to a simple event (here RightBumperPressed) and use a callback method.");
 
@@ -20,7 +18,7 @@ SensorListener::SensorListener(
 }
 
 SensorListener::~SensorListener() {
-  fMemoryProxy.unsubscribeToEvent("onRightBumperPressed", "SensorListener");
+  fMemoryProxy.unsubscribeToEvent("RightBumperPressed", "SensorListener");
 }
 
 void SensorListener::init() {
@@ -44,6 +42,7 @@ void SensorListener::init() {
     qiLogError("module.example") << e.what() << std::endl;
   }
 }
+
 
 void SensorListener::onRightBumperPressed() {
     qiLogInfo("module.example") << "Executing callback method on right bumper event" << std::endl;

@@ -31,12 +31,13 @@ public:
      */
      void onRightBumperPressed();
 
+private :
+     boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort);
+
 private:
-     AL::ALMemoryProxy fMemoryProxy;
+      AL::ALMemoryProxy fMemoryProxy;
      AL::ALTextToSpeechProxy fTtsProxy;
-
      boost::shared_ptr<AL::ALMutex> fCallbackMutex;
-
      float fState;
 
 };

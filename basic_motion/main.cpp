@@ -18,57 +18,51 @@
 #include "sit.h"
 #include "sensorlistener.h"
 
-#ifdef BUMPER_IS_REMOTE
-# define ALCALL
-#else
-# ifdef _WIN32
-#  define ALCALL __declspec(dllexport)
-# else
-#  define ALCALL
-# endif
-#endif
-
-extern "C"
-{
-  ALCALL int _createModule(boost::shared_ptr<AL::ALBroker> pBroker)
-  {
-    // init broker with the main broker instance
-    // from the parent executable
-    AL::ALBrokerManager::setInstance(pBroker->fBrokerManager.lock());
-    AL::ALBrokerManager::getInstance()->addBroker(pBroker);
-      AL::ALModule::createModule<SensorListener>( pBroker, "SensorListener" );
-
-    return 0;
-  }
-
-  ALCALL int _closeModule()
-  {
-    return 0;
+boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort) {
+  // Name, IP and port of our local broker that talks to NAO's broker:
+  const std::string brokerName = "localbroker";
+  int brokerPort = 54000;   // FIXME: would be a good idea to look for a free port first
+  const std::string brokerIp   = "0.0.0.0";  // listen to anything
+  try {
+    boost::shared_ptr<AL::ALBroker> broker = AL::ALBroker::createBroker(
+        brokerName,
+        brokerIp,
+        brokerPort,
+        parentBrokerIP,
+        parentBrokerPort,
+        0    // you can pass various options for the broker creation, but default is fine
+      );
+    // ALBrokerManager is a singleton class (only one instance).
+    AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
+    AL::ALBrokerManager::getInstance()->addBroker(broker);
+    AL::ALModule::createModule<SensorListener>( broker, "SensorListener" );
+    return broker;
+  } catch(const AL::ALError& /* e */) {
+    std::cerr << "Faild to connect broker to: " << parentBrokerIP << ":" << parentBrokerPort
+              << std::endl;
+    AL::ALBrokerManager::getInstance()->killAllBroker();
+    AL::ALBrokerManager::kill();
+    exit(2);
   }
 }
-
-#ifdef BUMPER_IS_REMOTE
 int main(int argc, char* argv[])
 {
    std::cout << "Hello, world" << std::endl;
 
     try {
-        // pointer to createModule
-        TMainType sig;
-        sig = &_createModule;
-        // call main
-        //Motion::initProxy("192.168.0.1", 9559);
-        ALTools::mainFunction("sensorlistener", argc, argv, sig);
+        boost::shared_ptr<AL::ALBroker> broker = makeLocalBroker("192.168.0.1", 9559);
+        Motion::initProxy("192.168.0.1", 9559);
 
-        //SensorListener* sens = new SensorListener("BumperLFootLeft");
-        /*Motion* bm = new Sit();
+        SensorListener* sens = new SensorListener(broker, "BumperLFootLeft");
+        Motion* bm = new Stand();
         bm->action();
-        AL::ALValue jointName = "HeadYaw";
+        /*AL::ALValue jointName = "HeadYaw";
         AL::ALValue targetAngles = AL::ALValue::array(-1.5f, 1.5f, 0.0f);
         AL::ALValue targetTimes = AL::ALValue::array(3.0f, 6.0f, 9.0f);
         bool isAbsolute = true;
         Motion* bm = new Head(jointName,targetAngles, targetTimes, isAbsolute);
         bm->action();*/
+        //while(1){}
     }
     catch (const AL::ALError& e) {
         std::cerr << "Caught exception: " << e.what() << std::endl;
@@ -77,4 +71,3 @@ int main(int argc, char* argv[])
 
   return 0;
 }
-#endif
