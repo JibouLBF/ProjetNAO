@@ -11,7 +11,7 @@
 
 namespace AL
 {
-  class ALBroker;
+class ALBroker;
 }
 
 class SensorListener :  public AL::ALModule
@@ -24,21 +24,34 @@ public:
     /** Overloading ALModule::init().
      * This is called right after the module has been loaded
      */
-     virtual void init();
+    void init();
 
-     /**
-     * This method will be called every time the event RightBumperPressed is raised.
+    /**
+     * These methods will be called every time the event is raised.
      */
-     void onRightBumperPressed();
+    void virtual onRightBumperPressed();
+    void virtual onLeftBumperPressed();
+    void virtual onChestButtonPressed();
+    void virtual onFrontTactilTouched();
+    void virtual onMiddleTactilTouched();
+    void virtual onRearTactilTouched();
+    void virtual onHotJoinedDetected();
+    void virtual onHandRightBackTouched();
+    void virtual onHandRightLeftTouched();
+    void virtual onHandRightRightTouched();
+    void virtual onHandLeftBackTouched();
+    void virtual onHandLeftLeftTouched();
+    void virtual onHandLeftRightTouched();
+    void virtual onBodyStiffnessChanged();
 
 private :
-     boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort);
+    boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort);
 
-private:
-      AL::ALMemoryProxy fMemoryProxy;
-     AL::ALTextToSpeechProxy fTtsProxy;
-     boost::shared_ptr<AL::ALMutex> fCallbackMutex;
-     float fState;
+protected:
+    AL::ALMemoryProxy fMemoryProxy;
+    AL::ALTextToSpeechProxy fTtsProxy;
+    boost::shared_ptr<AL::ALMutex> fCallbackMutex;
+    float fState;
 
 };
 

@@ -17,3 +17,7 @@ void Motion::initProxy(std::string ip, int port){
 void Motion::relax(){
     basicMotionProxy->rest();
 }
+
+void Motion::moveTo(int x, int y, int z){
+    this->basicMotionProxy->move(x, y, z);
+}
