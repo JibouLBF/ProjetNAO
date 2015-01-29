@@ -1,11 +1,11 @@
 #include "basicmotion.h"
+#include "common.h"
 #include <iostream>
 #include <alerror/alerror.h>
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
 #include <unistd.h>
 
-//AL::ALMotionProxy* BasicMotion::basicMotionProxy = new AL::ALMotionProxy ("192.168.0.1", 9559);
 
 BasicMotion::BasicMotion()
 {
@@ -69,9 +69,10 @@ void BasicMotion::action()
         /** Time (in seconds) to reach the target. */
         AL::ALValue time = 1.0f;
         /** Call the stiffness interpolation method. */
-        basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
+        Common::basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
     std::cout << motionName << " "<<angleList << " "<<timeList<<" "<<isAbsolute<<std::endl;
-    basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);
+    Common::basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);
+    //Common::basicMotionProxy->post.angleInterpolation(motionName, angleList, timeList, isAbsolute);
 }
 
 

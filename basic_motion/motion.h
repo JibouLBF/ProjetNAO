@@ -11,16 +11,11 @@ class Motion
 public:
     Motion();
     virtual void action ()= 0;
-    static void initProxy(std::string ip, int port);
     void relax();
     void moveTo (int x, int y, int z);
 
 protected:
     AL::ALValue name;
-    static AL::ALMotionProxy* basicMotionProxy;
-    static AL::ALRobotPostureProxy* postureProxy;
-
-
 };
 
 #endif // MOTION_H

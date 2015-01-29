@@ -7,22 +7,24 @@ option(BUMPER_IS_REMOTE
   ON)
 
 set(_srcs
-    basicmotion.h
-    basicmotion.cpp
-    head.h
-    head.cpp
     arm.h
     arm.cpp
-    leg.h
-    leg.cpp
-    motion.h
-    motion.cpp
+    basicmotion.h
+    basicmotion.cpp
+    common.h
+    common.cpp
     crouch.h
     crouch.cpp
+    head.h
+    head.cpp
+    leg.h
+    leg.cpp
     lyingback.h
     lyingback.cpp
     lyingbelly.h
     lyingbelly.cpp
+    motion.h
+    motion.cpp
     posture.h
     posture.cpp
     sit.h

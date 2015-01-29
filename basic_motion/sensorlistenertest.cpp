@@ -6,6 +6,7 @@
 #include <althread/alcriticalsection.h>
 
 #include "sensorlistenertest.h"
+#include "common.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ SensorListenerTest::SensorListenerTest(boost::shared_ptr<AL::ALBroker> broker,co
 
 void SensorListenerTest::onRightBumperPressed(){
     cout<<"action catch"<<endl;
+    Common::basicMotionProxy->killWalk();
 }
 
 void SensorListenerTest::onMiddleTactilTouched(){
