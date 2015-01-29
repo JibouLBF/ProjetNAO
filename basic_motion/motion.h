@@ -12,7 +12,7 @@ public:
     Motion();
     virtual void action ()= 0;
     void relax();
-    void moveTo (int x, int y, int z);
+    std::string getName();
 
 protected:
     AL::ALValue name;

@@ -10,6 +10,7 @@
 #include <alcommon/albrokermanager.h>
 #include <alcommon/altoolsmain.h>
 #include <string.h>
+#include "scheduler.h"
 
 
 class Common
@@ -17,6 +18,7 @@ class Common
 public:
     static AL::ALMotionProxy* basicMotionProxy;
     static AL::ALRobotPostureProxy* postureProxy;
+    static Scheduler scheduler;
 
     static boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort);
     static void initProxy(std::string ip, int port);

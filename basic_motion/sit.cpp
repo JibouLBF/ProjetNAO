@@ -3,4 +3,5 @@
 Sit::Sit()
 {
     typeOfPosture = "Sit";
+    name = "Sit";
 }

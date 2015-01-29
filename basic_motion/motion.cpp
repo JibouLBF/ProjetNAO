@@ -1,6 +1,8 @@
 #include "motion.h"
 #include "common.h"
 
+using namespace std;
+
 Motion::Motion()
 {
     //this->name= name;
@@ -11,6 +13,6 @@ void Motion::relax(){
     Common::basicMotionProxy->rest();
 }
 
-void Motion::moveTo(int x, int y, int z){
-    Common::basicMotionProxy->move(x, y, z);
+string Motion::getName(){
+    return name;
 }

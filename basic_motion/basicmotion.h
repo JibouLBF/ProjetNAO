@@ -28,6 +28,7 @@ public:
 
     bool getIsAbsolute() const;
     void setIsAbsolute(bool value);
+    bool getIsParallel() const;
 
     void action();
 
@@ -42,6 +43,8 @@ protected:
     AL::ALValue stiffness;
     /** Specify that the desired angles are absolute. */
     bool isAbsolute;
+    /** If this move should be launched in a thread */
+    bool isParallel;
 
 };
 

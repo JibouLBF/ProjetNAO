@@ -52,6 +52,11 @@ bool BasicMotion::getIsAbsolute() const
     return isAbsolute;
 }
 
+bool BasicMotion::getIsParallel() const
+{
+    return isParallel;
+}
+
 void BasicMotion::setIsAbsolute(bool value)
 {
     isAbsolute = value;
@@ -65,14 +70,14 @@ void BasicMotion::action()
     * desired angles at the desired times.
     */
     /** Target stiffness. */
-        AL::ALValue stiffness = 1.0f;
-        /** Time (in seconds) to reach the target. */
-        AL::ALValue time = 1.0f;
-        /** Call the stiffness interpolation method. */
-        Common::basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
+    AL::ALValue stiffness = 1.0f;
+    /** Time (in seconds) to reach the target. */
+    AL::ALValue time = 1.0f;
+    /** Call the stiffness interpolation method. */
+    Common::basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
     std::cout << motionName << " "<<angleList << " "<<timeList<<" "<<isAbsolute<<std::endl;
+
     Common::basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);
-    //Common::basicMotionProxy->post.angleInterpolation(motionName, angleList, timeList, isAbsolute);
 }
 
 

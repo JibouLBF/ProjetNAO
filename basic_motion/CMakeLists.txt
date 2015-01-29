@@ -15,6 +15,10 @@ set(_srcs
     common.cpp
     crouch.h
     crouch.cpp
+    facedetectionlistener.h
+    facedetectionlistener.cpp
+    facedetectionlistenertest.h
+    facedetectionlistenertest.cpp
     head.h
     head.cpp
     leg.h
@@ -27,6 +31,12 @@ set(_srcs
     motion.cpp
     posture.h
     posture.cpp
+    scheduler.h
+    scheduler.cpp
+    sensorlistener.h
+    sensorlistener.cpp
+    sensorlistenertest.h
+    sensorlistenertest.cpp
     sit.h
     sit.cpp
     sitrelax.h
@@ -37,10 +47,8 @@ set(_srcs
     standinit.cpp
     standzero.h
     standzero.cpp
-    sensorlistener.h
-    sensorlistener.cpp
-    sensorlistenertest.h
-    sensorlistenertest.cpp
+    walk.h
+    walk.cpp
     main.cpp
 )
 

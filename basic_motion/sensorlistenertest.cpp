@@ -8,6 +8,7 @@
 #include "sensorlistenertest.h"
 #include "common.h"
 
+
 using namespace std;
 
 SensorListenerTest::SensorListenerTest(boost::shared_ptr<AL::ALBroker> broker,const std::string& name):
@@ -19,7 +20,7 @@ SensorListenerTest::SensorListenerTest(boost::shared_ptr<AL::ALBroker> broker,co
 
 void SensorListenerTest::onRightBumperPressed(){
     cout<<"action catch"<<endl;
-    Common::basicMotionProxy->killWalk();
+    Common::basicMotionProxy->killAll();
 }
 
 void SensorListenerTest::onMiddleTactilTouched(){

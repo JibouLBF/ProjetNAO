@@ -2,10 +2,12 @@
 
 AL::ALMotionProxy* Common::basicMotionProxy = NULL;
 AL::ALRobotPostureProxy* Common::postureProxy = NULL;
+Scheduler Common::scheduler;
 
 void Common::initProxy(std::string ip, int port){
     basicMotionProxy = new AL::ALMotionProxy (ip, port);
     postureProxy = new AL::ALRobotPostureProxy (ip, port);
+    scheduler = Scheduler();
 }
 
 boost::shared_ptr<AL::ALBroker> Common::makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort) {
