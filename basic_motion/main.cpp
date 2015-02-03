@@ -23,7 +23,9 @@
 #include "scheduler.h"
 #include "crouch.h"
 #include "facedetectionlistenertest.h"
+#include "sounddetectionlistenertest.h"
 #include "walk.h"
+#include "leds.h"
 
 int main(int argc, char* argv[])
 {
@@ -33,6 +35,7 @@ int main(int argc, char* argv[])
         boost::shared_ptr<AL::ALBroker> broker = Common::makeLocalBroker("192.168.0.1", 9559);
         AL::ALModule::createModule<SensorListenerTest>(broker, "SensorListenerTest");
         AL::ALModule::createModule<FaceDetectionListenerTest>( broker, "FaceDectionListenerTest" );
+        AL::ALModule::createModule<SoundDetectionListenerTest>( broker, "SoundDetectionListenerTest" );
 
         Common::initProxy("192.168.0.1", 9559);
 
@@ -43,9 +46,17 @@ int main(int argc, char* argv[])
         Motion* arm = new Arm(jointName,targetAngles, targetTimes, isAbsolute);
         //Common::scheduler.addEvent(new Crouch());
         //Common::scheduler.addEvent(arm);
-        Common::scheduler.addEvent(new Stand());
-        Common::scheduler.addEvent(new Walk(1,0,0));
-        Common::scheduler.addEvent(new Crouch());
+        //Common::scheduler.addEvent(new Walk(1,0,0));
+        /*Common::scheduler.addEvent(new Leds("RightEyeLeds",AL::ALValue::array(0x00FF0066),AL::ALValue::array(1.0f)));
+        Common::scheduler.addEvent(new Leds("LeftEyeLeds",AL::ALValue::array(0x00FF0066),AL::ALValue::array(1.0f)));
+        Common::scheduler.addEvent(new Leds("RightEarLeds",AL::ALValue::array(0x000000FF),AL::ALValue::array(1.0f)));
+        Common::scheduler.addEvent(new Leds("LeftEarLeds",AL::ALValue::array(0x00FF0066),AL::ALValue::array(1.0f)));
+
+        Common::scheduler.addEvent(new Leds("RightFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
+        Common::scheduler.addEvent(new Leds("LeftFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
+
+        Common::scheduler.addEvent(new Stand());*/
+
         Common::scheduler.play();
 
         /*AL::ALValue jointName = "HeadYaw";

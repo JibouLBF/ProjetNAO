@@ -21,6 +21,8 @@ set(_srcs
     facedetectionlistenertest.cpp
     head.h
     head.cpp
+    leds.h
+    leds.cpp
     leg.h
     leg.cpp
     lyingback.h
@@ -41,6 +43,10 @@ set(_srcs
     sit.cpp
     sitrelax.h
     sitrelax.cpp
+    sounddetectionlistener.h
+    sounddetectionlistener.cpp
+    sounddetectionlistenertest.h
+    sounddetectionlistenertest.cpp
     stand.h
     stand.cpp
     standinit.h
@@ -68,7 +74,7 @@ endif()
 # Tell CMake that movehead depends on ALCOMMON.
 # This will set the libraries to link movehead with,
 # the include paths, and so on
-qi_use_lib(basic_motion ALCOMMON)
+qi_use_lib(basic_motion ALCOMMON ALAUDIO)
 
 
 
