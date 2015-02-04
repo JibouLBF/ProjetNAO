@@ -4,6 +4,8 @@
 #include <alcommon/alproxy.h>
 #include <alcommon/albroker.h>
 #include <alproxies/alaudiosourcelocalizationproxy.h>
+#include <althread/alcriticalsection.h>
+#include <althread/almutex.h>
 
 #include <iostream>
 #include <fstream>
@@ -11,8 +13,9 @@
 
 SoundLocalizationListener::SoundLocalizationListener(boost::shared_ptr<ALBroker> broker,
                                            const std::string& name) :
-  ALModule(broker, name)
+  ALModule(broker, name),  fCallbackMutex(AL::ALMutex::createALMutex())
 {
+
   fMemoryProxy = AL::ALMemoryProxy(getParentBroker());
   head = new Head();
   AL::ALValue joints = AL::ALValue::array("HeadPitch","HeadYaw");
@@ -43,6 +46,7 @@ SoundLocalizationListener::~SoundLocalizationListener()
 
 void SoundLocalizationListener::onSoundDetected()
 {
+  AL::ALCriticalSection section(fCallbackMutex);
   AL::ALValue value = fMemoryProxy.getData("ALAudioSourceLocalization/SoundLocated");
   float confidence = value[1][2];
   float azimuth = value[1][0];
@@ -56,9 +60,8 @@ void SoundLocalizationListener::onSoundDetected()
     AL::ALValue targetAngles = AL::ALValue::array(AL::ALValue::array(elevation), AL::ALValue::array(azimuth));
     head->setAngleList(targetAngles);
     head->action();
-
+    Common::soundDetected = true;
     //fProxyToTextToSpeech.say("Hello there!");
-
   }
 }
 

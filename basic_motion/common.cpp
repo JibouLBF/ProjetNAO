@@ -7,6 +7,12 @@ AL::ALRobotPostureProxy* Common::postureProxy = NULL;
 AL::ALLedsProxy* Common::ledsProxy = NULL;
 AL::ALAudioSourceLocalizationProxy* Common::soundLocProxy = NULL;
 AL::ALTextToSpeechProxy* Common::fTtsProxy = NULL;
+bool Common::eventRaised = false;
+bool Common::faceDetected = false;
+bool Common::soundDetected = false;
+bool Common::sensorPushed = false;
+boost::shared_ptr<AL::ALBroker> Common::broker;
+
 
 Scheduler Common::scheduler;
 

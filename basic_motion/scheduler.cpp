@@ -25,5 +25,6 @@ void Scheduler::play(){
 void Scheduler::stop(){
     isPaused = true;
     Common::basicMotionProxy->killAll();
+    Common::postureProxy->stopMove();
 }
 

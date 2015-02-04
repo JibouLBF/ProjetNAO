@@ -21,12 +21,18 @@
 class Common
 {
 public:
+    static boost::shared_ptr<AL::ALBroker> broker;
     static AL::ALMotionProxy* basicMotionProxy;
     static AL::ALRobotPostureProxy* postureProxy;
     static AL::ALLedsProxy* ledsProxy;
     static AL::ALAudioSourceLocalizationProxy* soundLocProxy;
     static AL::ALTextToSpeechProxy* fTtsProxy;
     static Scheduler scheduler;
+    static bool eventRaised;
+    static bool faceDetected;
+    static bool soundDetected;
+    static bool sensorPushed;
+
 
     static boost::shared_ptr<AL::ALBroker> makeLocalBroker(const std::string parentBrokerIP, int parentBrokerPort);
     static void initProxy(std::string ip, int port);

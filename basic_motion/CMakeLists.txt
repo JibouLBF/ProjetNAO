@@ -43,8 +43,8 @@ set(_srcs
     sensorlistenertest.cpp
     sit.h
     sit.cpp
-    sitrelax.h
-    sitrelax.cpp
+    ./posture/sitrelax.h
+    ./posture/sitrelax.cpp
     sounddetectionlistener.h
     sounddetectionlistener.cpp
     sounddetectionlistenertest.h
@@ -57,6 +57,8 @@ set(_srcs
     standinit.cpp
     standzero.h
     standzero.cpp
+    waitforevent.h
+    waitforevent.cpp
     walk.h
     walk.cpp
     main.cpp

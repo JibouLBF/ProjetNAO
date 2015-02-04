@@ -7,7 +7,9 @@
 #include <alproxies/altexttospeechproxy.h>
 #include <alproxies/alaudiosourcelocalizationproxy.h>
 #include <alproxies/almemoryproxy.h>
+#include <althread/alcriticalsection.h>
 #include "head.h"
+#include <althread/almutex.h>
 
 
 using namespace AL;
@@ -26,6 +28,8 @@ private:
   ALTextToSpeechProxy fProxyToTextToSpeech;
   ALMemoryProxy fMemoryProxy;
   Head* head;
+  /** Mutex to make the callback function thread-safe. */
+  boost::shared_ptr<AL::ALMutex> fCallbackMutex;
 };
 
 #endif // SOUNDLOCALIZATIONLISTENER_H

@@ -28,18 +28,21 @@
 #include "walk.h"
 #include "leds.h"
 #include "say.h"
+#include "posture/sitrelax.h"
+#include "waitforevent.h"
 
 int main(int argc, char* argv[])
 {
     std::cout << "Hello, world" << std::endl;
 
     try {
-        boost::shared_ptr<AL::ALBroker> broker = Common::makeLocalBroker("192.168.0.1", 9559);
-        //AL::ALModule::createModule<SensorListenerTest>(broker, "SensorListenerTest");
-        //AL::ALModule::createModule<FaceDetectionListenerTest>( broker, "FaceDectionListenerTest" );
-        AL::ALModule::createModule<SoundLocalizationListener>( broker, "SoundLocalizationListener" );
-
+        Common::broker = Common::makeLocalBroker("192.168.0.1", 9559);
         Common::initProxy("192.168.0.1", 9559);
+
+        AL::ALModule::createModule<SensorListenerTest>(Common::broker, "SensorListenerTest");
+        AL::ALModule::createModule<FaceDetectionListenerTest>( Common::broker, "FaceDectionListenerTest" );
+        AL::ALModule::createModule<SoundLocalizationListener>(Common::broker, "SoundLocalizationListener" );
+
 
         AL::ALValue jointName = AL::ALValue::array("LShoulderPitch","RShoulderPitch");
         AL::ALValue targetAngles = AL::ALValue::array(AL::ALValue::array(-1.5f, 1.5f, 0.0f), AL::ALValue::array(-1.5f, 1.5f, 0.0f));
@@ -58,7 +61,10 @@ int main(int argc, char* argv[])
         Common::scheduler.addEvent(new Leds("LeftFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
 
         Common::scheduler.addEvent(new Stand());*/
-        Common::scheduler.addEvent(new Say("Bonjour les petits pères"));
+        //Common::scheduler.addEvent(new Say("Bonjour les petits pères"));
+        Common::scheduler.addEvent(new Stand());
+        Common::scheduler.addEvent(new WaitForEvent(&Common::soundDetected));
+        Common::scheduler.addEvent(new Sit());
         Common::scheduler.play();
 
         /*AL::ALValue jointName = "HeadYaw";
