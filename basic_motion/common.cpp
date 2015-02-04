@@ -1,13 +1,22 @@
 #include "common.h"
+#include <alcommon/albroker.h>
+
 
 AL::ALMotionProxy* Common::basicMotionProxy = NULL;
 AL::ALRobotPostureProxy* Common::postureProxy = NULL;
 AL::ALLedsProxy* Common::ledsProxy = NULL;
+AL::ALAudioSourceLocalizationProxy* Common::soundLocProxy = NULL;
+AL::ALTextToSpeechProxy* Common::fTtsProxy = NULL;
+
 Scheduler Common::scheduler;
 
 void Common::initProxy(std::string ip, int port){
     basicMotionProxy = new AL::ALMotionProxy (ip, port);
     postureProxy = new AL::ALRobotPostureProxy (ip, port);
+    fTtsProxy = new AL::ALTextToSpeechProxy (ip,port);
+    soundLocProxy = new AL::ALAudioSourceLocalizationProxy(ip,port);
+    soundLocProxy->setParameter("EnergyComputation",1.0f);
+    soundLocProxy->setParameter("Sensibility",0.8f);
     ledsProxy = new AL::ALLedsProxy (ip, port);
     createLedsGroup();
     scheduler = Scheduler();

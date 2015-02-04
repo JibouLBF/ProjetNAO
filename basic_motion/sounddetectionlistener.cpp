@@ -2,6 +2,7 @@
 #include <alvalue/alvalue.h>
 #include <alcommon/alproxy.h>
 #include <alcommon/albroker.h>
+#include <alproxies/alaudiosourcelocalizationproxy.h>
 
 #include <iostream>
 #include <fstream>
@@ -19,7 +20,7 @@ SoundDetectionListener::SoundDetectionListener(boost::shared_ptr<ALBroker> broke
 void SoundDetectionListener::init()
 {
   /// Setting up the appropriate language
-  fProxyToTextToSpeech.setLanguage("English");
+  fProxyToTextToSpeech.setLanguage("French");
 
   audioDevice->callVoid("setClientPreferences",
                         getName(),                //Name of this module
@@ -27,9 +28,10 @@ void SoundDetectionListener::init()
                         (int)FRONTCHANNEL,        //Front Channels requested
                         0                         //Deinterleaving is not needed here
                         );
+  ALAudioSourceLocalizationProxy proxy = ALAudioSourceLocalizationProxy("192.168.0.1",9559);
+  proxy.subscribe("SoundDetection");
   fMemoryProxy = AL::ALMemoryProxy(getParentBroker());
-  fMemoryProxy.getData("ALAudioSourceLocalization/SoundLocated");
-
+  //fMemoryProxy.getData("ALAudioSourceLocalization/SoundLocated");
   startDetection();
 }
 
@@ -46,7 +48,7 @@ void SoundDetectionListener::process(const int & nbOfChannels,
                                    const ALValue & timeStamp)
 {
   /// Compute the maximum value of the front microphone signal.
-  int maxValueFront = 0;
+  /*int maxValueFront = 0;
   for(int i = 0 ; i < nbrOfSamplesByChannel ; i++)
   {
     if(buffer[i] > maxValueFront)
@@ -57,12 +59,12 @@ void SoundDetectionListener::process(const int & nbOfChannels,
 
   /// Print it in the console
   /// (Naoqi needs to be launched in console mode to see the log)
-  std::cout << "maxvalue : " << maxValueFront << std::endl;
-
+  std::cout << "maxvalue : " << maxValueFront << std::endl;*/
+  AL::ALValue fState =  fMemoryProxy.getData("ALAudioSourceLocalization/SoundLocated");
+  float confidence = fState[1][2];
   /// Launch a texttospeech command when it is appropriate
-  if(maxValueFront > 10000)
+  if(confidence > 0.8f)
   {
-    AL::ALValue fState =  fMemoryProxy.getData("ALAudioSourceLocalization/SoundLocated");
     float azimuth = fState[1][0];
     float elevation = fState[1][1];
     AL::ALValue joints = AL::ALValue::array("HeadPitch","HeadYaw");

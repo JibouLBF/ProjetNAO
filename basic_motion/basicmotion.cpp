@@ -9,6 +9,7 @@
 
 BasicMotion::BasicMotion()
 {
+
 }
 
 AL::ALValue BasicMotion::getMotionName() const
@@ -71,10 +72,8 @@ void BasicMotion::action()
     */
     /** Target stiffness. */
     AL::ALValue stiffness = 1.0f;
-    /** Time (in seconds) to reach the target. */
-    AL::ALValue time = 1.0f;
     /** Call the stiffness interpolation method. */
-    Common::basicMotionProxy->stiffnessInterpolation(motionName, stiffness, time);
+    Common::basicMotionProxy->setStiffnesses(motionName, stiffness);
     std::cout << motionName << " "<<angleList << " "<<timeList<<" "<<isAbsolute<<std::endl;
 
     Common::basicMotionProxy->angleInterpolation(motionName, angleList, timeList, isAbsolute);

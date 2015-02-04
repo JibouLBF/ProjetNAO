@@ -24,8 +24,10 @@
 #include "crouch.h"
 #include "facedetectionlistenertest.h"
 #include "sounddetectionlistenertest.h"
+#include "soundlocalizationlistener.h"
 #include "walk.h"
 #include "leds.h"
+#include "say.h"
 
 int main(int argc, char* argv[])
 {
@@ -33,9 +35,9 @@ int main(int argc, char* argv[])
 
     try {
         boost::shared_ptr<AL::ALBroker> broker = Common::makeLocalBroker("192.168.0.1", 9559);
-        AL::ALModule::createModule<SensorListenerTest>(broker, "SensorListenerTest");
-        AL::ALModule::createModule<FaceDetectionListenerTest>( broker, "FaceDectionListenerTest" );
-        AL::ALModule::createModule<SoundDetectionListenerTest>( broker, "SoundDetectionListenerTest" );
+        //AL::ALModule::createModule<SensorListenerTest>(broker, "SensorListenerTest");
+        //AL::ALModule::createModule<FaceDetectionListenerTest>( broker, "FaceDectionListenerTest" );
+        AL::ALModule::createModule<SoundLocalizationListener>( broker, "SoundLocalizationListener" );
 
         Common::initProxy("192.168.0.1", 9559);
 
@@ -56,7 +58,7 @@ int main(int argc, char* argv[])
         Common::scheduler.addEvent(new Leds("LeftFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
 
         Common::scheduler.addEvent(new Stand());*/
-
+        Common::scheduler.addEvent(new Say("Bonjour les petits pères"));
         Common::scheduler.play();
 
         /*AL::ALValue jointName = "HeadYaw";

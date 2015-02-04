@@ -1,5 +1,6 @@
 #include <iostream>
 #include "head.h"
+#include "common.h"
 
 Head::Head()
 {

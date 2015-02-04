@@ -33,6 +33,8 @@ set(_srcs
     motion.cpp
     posture.h
     posture.cpp
+    say.h
+    say.cpp
     scheduler.h
     scheduler.cpp
     sensorlistener.h
@@ -47,6 +49,8 @@ set(_srcs
     sounddetectionlistener.cpp
     sounddetectionlistenertest.h
     sounddetectionlistenertest.cpp
+    soundlocalizationlistener.h
+    soundlocalizationlistener.cpp
     stand.h
     stand.cpp
     standinit.h
