@@ -11,37 +11,37 @@
 #include <alcommon/albrokermanager.h>
 #include <alcommon/altoolsmain.h>
 
-#include "motion.h"
-#include "basicmotion.h"
-#include "head.h"
-#include "stand.h"
-#include "sit.h"
-#include "sensorlistener.h"
-#include "sensorlistenertest.h"
-#include "common.h"
-#include "arm.h"
-#include "scheduler.h"
-#include "crouch.h"
-#include "facedetectionlistenertest.h"
-#include "sounddetectionlistenertest.h"
-#include "soundlocalizationlistener.h"
-#include "walk.h"
-#include "leds.h"
-#include "say.h"
-#include "posture/sitrelax.h"
-#include "waitforevent.h"
+#include "./motion/motion.h"
+#include "./motion/basicmotion/basicmotion.h"
+#include "./motion/basicmotion/head.h"
+#include "./motion/posture/stand.h"
+#include "./motion/posture/sit.h"
+#include "./listener/sensorlistener.h"
+#include "./listener/sensorlistenertest.h"
+#include "./common/common.h"
+#include "./motion/basicmotion/arm.h"
+#include "./common/scheduler.h"
+#include "./motion/posture/crouch.h"
+#include "./listener/facedetectionlistenertest.h"
+#include "./listener/sounddetectionlistenertest.h"
+#include "./listener/soundlocalizationlistener.h"
+#include "./motion/basicmotion/walk.h"
+#include "./motion/others/leds.h"
+#include "./motion/others/say.h"
+#include "./motion/posture/sitrelax.h"
+#include "./motion/others/waitforevent.h"
+#include "./listener/soundlocalizationlistenertest.h"
 
 int main(int argc, char* argv[])
 {
     std::cout << "Hello, world" << std::endl;
 
     try {
-        Common::broker = Common::makeLocalBroker("192.168.0.1", 9559);
-        Common::initProxy("192.168.0.1", 9559);
+        Common::init("192.168.0.1", 9559);
 
         AL::ALModule::createModule<SensorListenerTest>(Common::broker, "SensorListenerTest");
         AL::ALModule::createModule<FaceDetectionListenerTest>( Common::broker, "FaceDectionListenerTest" );
-        AL::ALModule::createModule<SoundLocalizationListener>(Common::broker, "SoundLocalizationListener" );
+        AL::ALModule::createModule<SoundLocalizationListenerTest>(Common::broker, "SoundLocalizationListenerTest" );
 
 
         AL::ALValue jointName = AL::ALValue::array("LShoulderPitch","RShoulderPitch");
@@ -61,15 +61,11 @@ int main(int argc, char* argv[])
         Common::scheduler.addEvent(new Leds("LeftFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
 
         Common::scheduler.addEvent(new Stand());*/
-        //Common::scheduler.addEvent(new Say("Bonjour les petits pères"));
         Common::scheduler.addEvent(new Stand());
         Common::scheduler.addEvent(new WaitForEvent(&Common::soundDetected));
         Common::scheduler.addEvent(new Sit());
         Common::scheduler.play();
 
-        /*AL::ALValue jointName = "HeadYaw";
-        Motion* bm = new Head(jointName,targetAngles, targetTimes, isAbsolute);
-        bm->action();*/
         while(1){}
     }
     catch (const AL::ALError& e) {
