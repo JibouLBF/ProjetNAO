@@ -47,8 +47,6 @@ set(_srcs
     ./motion/posture/sitrelax.cpp
     ./listener/sounddetectionlistener.h
     ./listener/sounddetectionlistener.cpp
-    ./listener/sounddetectionlistenertest.h
-    ./listener/sounddetectionlistenertest.cpp
     ./listener/soundlocalizationlistener.h
     ./listener/soundlocalizationlistener.cpp
     ./listener/soundlocalizationlistenertest.h

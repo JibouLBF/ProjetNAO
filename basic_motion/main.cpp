@@ -1,41 +1,25 @@
-#include <iostream>
-#include <alerror/alerror.h>
-#include <alproxies/almotionproxy.h>
-#include <alproxies/alrobotpostureproxy.h>
-#include <unistd.h>
+#include <alvalue/alvalue.h>
+#include "./common/common.h"
 
-#include <signal.h>
-#include <boost/shared_ptr.hpp>
-#include <alcommon/albroker.h>
-#include <alcommon/almodule.h>
-#include <alcommon/albrokermanager.h>
-#include <alcommon/altoolsmain.h>
-
-#include "./motion/motion.h"
-#include "./motion/basicmotion/basicmotion.h"
 #include "./motion/basicmotion/head.h"
 #include "./motion/posture/stand.h"
 #include "./motion/posture/sit.h"
-#include "./listener/sensorlistener.h"
-#include "./listener/sensorlistenertest.h"
-#include "./common/common.h"
 #include "./motion/basicmotion/arm.h"
-#include "./common/scheduler.h"
 #include "./motion/posture/crouch.h"
-#include "./listener/facedetectionlistenertest.h"
-#include "./listener/sounddetectionlistenertest.h"
-#include "./listener/soundlocalizationlistener.h"
 #include "./motion/basicmotion/walk.h"
 #include "./motion/others/leds.h"
 #include "./motion/others/say.h"
 #include "./motion/posture/sitrelax.h"
 #include "./motion/others/waitforevent.h"
+
+#include "./listener/sensorlistener.h"
+#include "./listener/sensorlistenertest.h"
+#include "./listener/facedetectionlistenertest.h"
+#include "./listener/soundlocalizationlistener.h"
 #include "./listener/soundlocalizationlistenertest.h"
 
 int main(int argc, char* argv[])
 {
-    std::cout << "Hello, world" << std::endl;
-
     try {
         Common::init("192.168.0.1", 9559);
 
@@ -61,9 +45,10 @@ int main(int argc, char* argv[])
         Common::scheduler.addEvent(new Leds("LeftFootLeds",AL::ALValue::array(0x00FF0006),AL::ALValue::array(1.0f)));
 
         Common::scheduler.addEvent(new Stand());*/
-        Common::scheduler.addEvent(new Stand());
+        //Common::scheduler.addEvent(new Sit());
         Common::scheduler.addEvent(new WaitForEvent(&Common::soundDetected));
-        Common::scheduler.addEvent(new Sit());
+        Common::scheduler.addEvent(new WaitForEvent(&Common::sensorPushed));
+        //Common::scheduler.addEvent(new Walk(1.5,0,0));
         Common::scheduler.play();
 
         while(1){}
